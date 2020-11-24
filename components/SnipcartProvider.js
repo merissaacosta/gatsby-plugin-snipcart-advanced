@@ -26,6 +26,12 @@ var SnipcartProvider = function SnipcartProvider(props) {
     window.Snipcart.api.session.setLanguage(lang, lng);
   };
 
+  var addItem = function addItem(item) {
+    if (item !== {} || Boolean(item.id)) {
+      window.Snipcart.api.cart.items.add(item);
+    }
+  };
+
   React.useEffect(function () {
     var listenSnipcart = function listenSnipcart() {
       document.addEventListener('snipcart.ready', function () {
@@ -50,7 +56,8 @@ var SnipcartProvider = function SnipcartProvider(props) {
   return /*#__PURE__*/React.createElement(SnipcartContext.Provider, {
     value: {
       state: state,
-      changeLanguage: changeLanguage
+      changeLanguage: changeLanguage,
+      addItem: addItem
     }
   }, props.children);
 };

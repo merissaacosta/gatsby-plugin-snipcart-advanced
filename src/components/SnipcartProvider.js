@@ -11,6 +11,11 @@ const SnipcartProvider = props => {
     const lng = locales[defaultLang] || {};
     window.Snipcart.api.session.setLanguage(lang, lng);
   };
+  const addItem = item => {
+    if (item !== {} || Boolean(item.id)) {
+      window.Snipcart.api.cart.items.add(item);
+    }
+  }
   React.useEffect(() => {
     const listenSnipcart = () => {
       document.addEventListener('snipcart.ready', () => {
@@ -28,7 +33,7 @@ const SnipcartProvider = props => {
   }, [props, dispatch, defaultLang, locales]);
 
   return (
-    <SnipcartContext.Provider value={{state, changeLanguage}}>
+    <SnipcartContext.Provider value={{state, changeLanguage, addItem}}>
       {props.children}
     </SnipcartContext.Provider>
   );
