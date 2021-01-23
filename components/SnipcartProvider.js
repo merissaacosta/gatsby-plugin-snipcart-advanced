@@ -32,6 +32,12 @@ var SnipcartProvider = function SnipcartProvider(props) {
     }
   };
 
+  var removeItem = function removeItem(uniqueId) {
+    if (uniqueId || Boolean(uniqueId)) {
+      window.Snipcart.api.cart.items.remove(uniqueId);
+    }
+  };
+
   React.useEffect(function () {
     var listenSnipcart = function listenSnipcart() {
       document.addEventListener('snipcart.ready', function () {
@@ -57,7 +63,8 @@ var SnipcartProvider = function SnipcartProvider(props) {
     value: {
       state: state,
       changeLanguage: changeLanguage,
-      addItem: addItem
+      addItem: addItem,
+      removeItem: removeItem,
     }
   }, props.children);
 };

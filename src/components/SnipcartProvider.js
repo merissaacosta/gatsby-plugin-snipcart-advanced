@@ -16,6 +16,11 @@ const SnipcartProvider = props => {
       window.Snipcart.api.cart.items.add(item);
     }
   }
+  const removeItem = uniqueId => {
+    if (uniqueId || Boolean(uniqueId)) {
+      window.Snipcart.api.cart.items.remove(uniqueId);
+    }
+  }
   React.useEffect(() => {
     const listenSnipcart = () => {
       document.addEventListener('snipcart.ready', () => {
@@ -33,7 +38,7 @@ const SnipcartProvider = props => {
   }, [props, dispatch, defaultLang, locales]);
 
   return (
-    <SnipcartContext.Provider value={{state, changeLanguage, addItem}}>
+    <SnipcartContext.Provider value={{state, changeLanguage, addItem, removeItem}}>
       {props.children}
     </SnipcartContext.Provider>
   );
