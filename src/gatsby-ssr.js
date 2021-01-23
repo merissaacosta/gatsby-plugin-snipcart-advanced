@@ -12,7 +12,7 @@ const GATSBY_SNIPCART_API_KEY = process.env.GATSBY_SNIPCART_API_KEY;
 exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions = {}) => {
   const _options = {
     ...{
-      version: "3.0.19",
+      version: "3.0.27",
       innerHTML: "",
       openCartOnAdd: true,
     },

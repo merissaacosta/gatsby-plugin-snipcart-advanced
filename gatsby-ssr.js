@@ -26,7 +26,7 @@ exports.onRenderBody = function (_ref, pluginOptions) {
   }
 
   var _options = (0, _extends2.default)({}, {
-    version: "3.0.19",
+    version: "3.0.27",
     innerHTML: "",
     openCartOnAdd: true
   }, {}, pluginOptions); // find public api key in options plugin or environment variable
