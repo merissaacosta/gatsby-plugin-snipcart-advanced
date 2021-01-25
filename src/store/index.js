@@ -6,6 +6,7 @@ export const initialState = {
   cartQuantity: 0,
   cartTotal: 0,
   cartSubTotal: 0,
+  cartItems: [],
 };
 
 // create context for dispatch
@@ -23,6 +24,8 @@ const reducer = (state, action) => {
       return { ...state, ...{ cartTotal: action.payload } };
     case "setSubTotal":
       return { ...state, ...{ cartSubTotal: action.payload } };
+    case "setCartItems":
+      return { ...state, ...{ cartItems: action.payload } };
     default:
       return state;
   }
@@ -59,6 +62,10 @@ export const useStore = () => {
         dispatch({
           type: "setSubTotal",
           payload: cart.subtotal,
+        });
+        dispatch({
+          type: "setCartItems",
+          payload: cart.items.items,
         });
       };
       // listen store update

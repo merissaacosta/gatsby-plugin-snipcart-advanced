@@ -14,7 +14,8 @@ var initialState = {
   userStatus: "SignedOut",
   cartQuantity: 0,
   cartTotal: 0,
-  cartSubTotal: 0
+  cartSubTotal: 0,
+  cartItems: [],
 }; // create context for dispatch
 
 exports.initialState = initialState;
@@ -46,6 +47,11 @@ var reducer = function reducer(state, action) {
     case "setSubTotal":
       return (0, _extends2.default)({}, state, {}, {
         cartSubTotal: action.payload
+      });
+
+    case "setCartItems":
+      return (0, _extends2.default)({}, state, {}, {
+        cartItems: action.payload
       });
 
     default:
@@ -93,6 +99,11 @@ var useStore = function useStore() {
         dispatch({
           type: "setSubTotal",
           payload: cart.subtotal
+        });
+
+        dispatch({
+          type: "setCartItems",
+          payload: cart.items.items
         });
       }; // listen store update
 
