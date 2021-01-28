@@ -34,20 +34,20 @@ var reducer = function reducer(state, action) {
         cartQuantity: action.payload
       });
 
-    case "setUserStatus":
-      return (0, _extends2.default)({}, state, {}, {
-        userStatus: action.payload
-      });
+    // case "setUserStatus":
+    //   return (0, _extends2.default)({}, state, {}, {
+    //     userStatus: action.payload
+    //   });
 
-    case "setTotal":
-      return (0, _extends2.default)({}, state, {}, {
-        cartTotal: action.payload
-      });
-
-    case "setSubTotal":
-      return (0, _extends2.default)({}, state, {}, {
-        cartSubTotal: action.payload
-      });
+    // case "setTotal":
+    //   return (0, _extends2.default)({}, state, {}, {
+    //     cartTotal: action.payload
+    //   });
+    //
+    // case "setSubTotal":
+    //   return (0, _extends2.default)({}, state, {}, {
+    //     cartSubTotal: action.payload
+    //   });
 
     case "setCartItems":
       return (0, _extends2.default)({}, state, {}, {
@@ -86,24 +86,26 @@ var useStore = function useStore() {
           }, 0)
         }); // connected or not
 
-        dispatch({
-          type: "setUserStatus",
-          payload: customer.status
-        }); // connected or not
+        // dispatch({
+        //   type: "setUserStatus",
+        //   payload: customer.status
+        // });
+        // connected or not
 
-        dispatch({
-          type: "setTotal",
-          payload: cart.total
-        }); // connected or not
+        // dispatch({
+        //   type: "setTotal",
+        //   payload: cart.total
+        // });
+        // connected or not
 
-        dispatch({
-          type: "setSubTotal",
-          payload: cart.subtotal
-        });
+        // dispatch({
+        //   type: "setSubTotal",
+        //   payload: cart.subtotal
+        // });
 
         dispatch({
           type: "setCartItems",
-          payload: cart.items.items
+          payload: items
         });
       }; // listen store update
 

@@ -18,12 +18,12 @@ const reducer = (state, action) => {
       return { ...state, ...{ ready: action.payload } };
     case "setQuantity":
       return { ...state, ...{ cartQuantity: action.payload } };
-    case "setUserStatus":
-      return { ...state, ...{ userStatus: action.payload } };
-    case "setTotal":
-      return { ...state, ...{ cartTotal: action.payload } };
-    case "setSubTotal":
-      return { ...state, ...{ cartSubTotal: action.payload } };
+    // case "setUserStatus":
+    //   return { ...state, ...{ userStatus: action.payload } };
+    // case "setTotal":
+    //   return { ...state, ...{ cartTotal: action.payload } };
+    // case "setSubTotal":
+    //   return { ...state, ...{ cartSubTotal: action.payload } };
     case "setCartItems":
       return { ...state, ...{ cartItems: action.payload } };
     default:
@@ -49,23 +49,23 @@ export const useStore = () => {
           payload: items.reduce((total, item) => total + item.quantity, 0),
         });
         // connected or not
-        dispatch({
-          type: "setUserStatus",
-          payload: customer.status,
-        });
+        // dispatch({
+        //   type: "setUserStatus",
+        //   payload: customer.status,
+        // });
         // connected or not
-        dispatch({
-          type: "setTotal",
-          payload: cart.total,
-        });
+        // dispatch({
+        //   type: "setTotal",
+        //   payload: cart.total,
+        // });
         // connected or not
-        dispatch({
-          type: "setSubTotal",
-          payload: cart.subtotal,
-        });
+        // dispatch({
+        //   type: "setSubTotal",
+        //   payload: cart.subtotal,
+        // });
         dispatch({
           type: "setCartItems",
-          payload: cart.items.items,
+          payload: items,
         });
       };
       // listen store update
